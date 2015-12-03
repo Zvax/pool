@@ -6,14 +6,15 @@ use BasicWebsite\Menu\MenuReader;
 use BasicWebsite\Pages\PageReader;
 use BasicWebsite\Template\Renderer;
 
-class Pool
+class Pool implements MainView
 {
     private $renderer;
     private $menuReader;
     private $pageReader;
+    private $params;
 
-    public $content = 'Default Content';
-    public $title = 'Pool Manager';
+    private $content = 'Default Content';
+    private $title = 'Pool Manager';
 
     public function __construct(Renderer $renderer,MenuReader $menuReader,PageReader $pageReader)
     {
@@ -23,10 +24,21 @@ class Pool
     }
 
     public function showPool(array $params = []) {
-        if (isset($params['slug'])) {
-            $this->content = $this->pageReader->readBySlug($params['slug']);
-        }
+        $this->params = $params;
         return $this->renderer->render('layout',$this);
+    }
+
+    public function content()
+    {
+        if (isset($this->params['slug'])) {
+            $this->content = $this->pageReader->readBySlug($this->params['slug']);
+        }
+        return $this->content;
+    }
+
+    public function title()
+    {
+        return $this->title;
     }
 
     public function menuItems()
