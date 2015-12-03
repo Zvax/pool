@@ -3,13 +3,13 @@
 <head>
     <title>{{title}}</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/css/pure.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body>
-<div id="layout">
+<div id="layout" class="pure-g">
 
-    <div id="menu">
+    <div id="menu" class="pure-u-1-4">
         <div class="pure-menu">
             <ul class="pure-menu-list">
                 {{#menuItems}}
@@ -20,7 +20,7 @@
 
     </div>
 
-    <div id="main">
+    <div id="main" class="pure-u-3-4">
         <div class="content">
             {{{content}}}
         </div>
