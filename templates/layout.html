@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/pure.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div id="layout">
+
+    <div id="menu">
+        <div class="pure-menu">
+            <ul class="pure-menu-list">
+                {{#menuItems}}
+                <li class="pure-menu-item"><a href="{{href}}">{{text}}</a></li>
+                {{/menuItems}}
+            </ul>
+        </div>
+
+    </div>
+
+    <div id="main">
+        <div class="content">
+            {{{content}}}
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+
