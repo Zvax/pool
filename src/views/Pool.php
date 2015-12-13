@@ -4,7 +4,7 @@ namespace Pool\Views;
 
 use BasicWebsite\Menu\MenuReader;
 use BasicWebsite\Pages\PageReader;
-use BasicWebsite\Template\Renderer;
+use Templating\Renderer;
 
 class Pool implements MainView
 {

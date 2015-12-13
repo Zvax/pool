@@ -16,15 +16,12 @@ $injector->define('Http\Request',[
     ':server' => $_SERVER,
 ]);
 
-$injector->alias('BasicWebsite\Template\Renderer','BasicWebsite\Template\MustacheRenderer');
-$injector->share('BasicWebsite\Template\Renderer');
+$injector->alias('Templating\Renderer','Templating\PhpTemplatesRenderer');
+$injector->share('Templating\Renderer');
 
-$injector->define('Mustache_Engine',[
-    ':options' => [
-        'loader'=> new Mustache_Loader_FilesystemLoader(__DIR__."/../templates",[
-            'extension' => '.html',
-        ]),
-    ]
+$injector->define('Storage\FileLoader',[
+    ':root' => __DIR__.'/../templates',
+    ':extension' => 'php',
 ]);
 
 $injector->define('BasicWebsite\Pages\FilePageReader',[

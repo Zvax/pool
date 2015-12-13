@@ -6,7 +6,7 @@
         "rdlowrey/auryn": "v1.0.0",
         "nikic/fast-route": "0.6.0",
         "patricklouys/http": "1.2.0",
-        "mustache/mustache": "v2.9.0"
+        "zvax/templating": "0.0.7"
     },
     "autoload": {
         "psr-4": {
