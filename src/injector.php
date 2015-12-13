@@ -8,6 +8,10 @@ $injector->alias('Http\Response','Http\HttpResponse');
 $injector->share('Http\Request');
 $injector->share('Http\Response');
 
+$injector->define('PDO',[
+    ':dsn' => 'sqlite:C:/Users/back_again/pooldb'
+]);
+
 $injector->define('Http\Request',[
     ':get' => $_GET,
     ':post' => $_POST,

@@ -4,6 +4,7 @@ namespace Pool\Views;
 
 use BasicWebsite\Menu\MenuReader;
 use BasicWebsite\Pages\PageReader;
+use Pool\Views\Players\ListView;
 use Templating\Renderer;
 
 class Pool implements MainView
@@ -30,8 +31,17 @@ class Pool implements MainView
 
     public function content()
     {
-        if (isset($this->params['slug'])) {
-            $this->content = $this->pageReader->readBySlug($this->params['slug']);
+        if (isset($this->params['slug']))
+        {
+            $slug = $this->params['slug'];
+            if ($slug === 'players')
+            {
+                $this->content = $this->renderer->render('players/list',new ListView());
+            }
+            else
+            {
+                $this->content = $this->pageReader->readBySlug($this->params['slug']);
+            }
         }
         return $this->content;
     }
