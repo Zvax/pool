@@ -22,12 +22,23 @@ class Player
 
     public function find($playerId)
     {
-        $sql = "SELECT * FROM players WHERE id=:id";
+        $sql = "
+            SELECT
+              pla.id,
+              firstname,
+              lastname,
+              position
+            FROM players AS pla
+            LEFT JOIN contracts AS ctr ON ctr.player_id=pla.id
+            LEFT JOIN contracts_years AS yrs ON yrs.contract_id=ctr.id
+            WHERE pla.id=:id
+        ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             ':id' => $playerId
         ]);
-        return $stmt->fetchObject("\\Model\\Domain\\Player");
+        $player = $stmt->fetchObject("\\Model\\Domain\\Player");
+        return $player;
     }
 
 

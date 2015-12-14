@@ -8,5 +8,6 @@ class Player
     public $firstname;
     public $lastname;
     public $position;
+    public $salary = [];
 
 }
