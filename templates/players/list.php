@@ -3,8 +3,8 @@
 /** @var \Pool\Model\Player $player */
 ?>
 <form action="players" method="post">
-    <label><input type="text" name="first name"></label>
-    <label><input type="text" name=" last name"></label>
+    <label><input type="text" name="firstname" placeholder="first name"></label>
+    <label><input type="text" name=" lastname" placeholder="last name"></label>
     <button type="submit">submit</button>
 </form>
 <ul>
