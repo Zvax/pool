@@ -3,9 +3,8 @@
 namespace Controllers;
 
 use Application\Step;
-use Pool\Model\Mappers\Player;
-use Pool\Model\Params;
-use Pool\View\Players\ListView;
+use Model\Mappers\Player;
+use View\Players\ListView;
 use Templating\Renderer;
 use View\Site;
 
@@ -20,7 +19,6 @@ class Players
     public function __construct
     (
         \PDO $pdo,
-        Params $params,
         Player $playerMapper,
         Site $site,
         ListView $playerListView,

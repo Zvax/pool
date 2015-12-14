@@ -3,7 +3,7 @@
 namespace View\Players;
 
 use Application\Step;
-use Pool\Model\Mappers\Player;
+use Model\Mappers\Player;
 use Templating\Renderer;
 use View\Site;
 

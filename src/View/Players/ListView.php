@@ -1,8 +1,8 @@
 <?php
 
-namespace Pool\View\Players;
+namespace View\Players;
 
-use Pool\Model\Mappers\Player;
+use Model\Mappers\Player;
 
 class ListView
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Pool\Model\Domain;
+namespace Model\Domain;
 
 class Player
 {

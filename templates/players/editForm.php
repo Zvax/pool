@@ -1,4 +1,4 @@
-<?php /** @var \Pool\Model\Domain\Player $this */ ?>
+<?php /** @var \Model\Domain\Player $this */ ?>
 <form action="/players/update" method="post">
     <input type="hidden" name="id" value="<?= $this->id ?>">
     <label>
@@ -16,7 +16,10 @@
     <p>
         <label>
             position:
-            <input type="text" value="<?= $this->position ?>" placeholder="position">
+            <input name="position"
+                   type="text"
+                   value="<?= $this->position ?>"
+                   placeholder="position">
         </label>
     </p>
     <button type="submit">save</button>
