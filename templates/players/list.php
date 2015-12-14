@@ -12,7 +12,7 @@
     foreach ($this->getPlayers() as $player)
     { ?>
         <li>
-            <a href="<?= "players/$player->id" ?>">
+            <a href="<?= "/players/$player->id" ?>">
                 <?= "$player->firstname $player->lastname" ?>
             </a>
         </li>

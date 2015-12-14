@@ -34,13 +34,6 @@ class Players
         $this->renderer = $renderer;
     }
 
-    public function showOne($params)
-    {
-        $id = $params['id'];
-        $this->siteView->content = $id;
-        return new Step("View\\Site::show");
-    }
-
     public function listPlayers()
     {
         $this->siteView->content = $this->renderer->render('players/list',$this->playerListView);

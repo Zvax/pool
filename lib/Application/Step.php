@@ -11,7 +11,7 @@ class Step
         $this->stepCallable = $nextCallable;
     }
 
-    public function getStepCallable()
+    public function getCallable()
     {
         return $this->stepCallable;
     }

@@ -22,7 +22,17 @@ class Engine
         /** @var Step $step */
         foreach ($this->executableList as $step)
         {
-            $result = $this->injector->execute($step->getStepCallable());
+            $callable = $step->getCallable();
+
+            if (is_array($callable))
+            {
+                $result = $this->injector->execute($callable[0],$callable[1]);
+            }
+            else
+            {
+                $result = $this->injector->execute($callable);
+            }
+
             if ($result instanceof  Step)
             {
                 $this->executableList->addStep($result);

@@ -48,9 +48,10 @@ switch ($routeInfo[0]) {
         $method = $routeInfo[1][1];
         $vars = $routeInfo[2];
 
-        $injector->defineParam('params',$vars);
-
-        $firstStep = new Step("$className::$method");
+        $firstStep = new Step([
+            "$className::$method",
+            [':params' => $vars]
+        ]);
 
         $app = new Engine($injector,$firstStep);
         $app->execute();
