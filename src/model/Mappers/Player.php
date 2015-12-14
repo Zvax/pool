@@ -15,7 +15,7 @@ class Player
     {
         $sql = "SELECT * FROM players LIMIT $start,$quantity";
         $stmt = $this->pdo->query($sql);
-        return $stmt->fetchAll(\PDO::FETCH_CLASS,"Pool\\Model\\Player");
+        return $stmt->fetchAll(\PDO::FETCH_CLASS,"Pool\\Model\\Domain\\Player");
     }
 
     public function find($playerId)
@@ -25,6 +25,6 @@ class Player
         $stmt->execute([
             ':id' => $playerId
         ]);
-        return $stmt->fetchObject("Pool\\Model\\Player");
+        return $stmt->fetchObject("Pool\\Model\\Domain\\Player");
     }
 }
