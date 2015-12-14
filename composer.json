@@ -12,7 +12,8 @@
         "psr-4": {
             "BasicWebsite\\": "src/",
             "Pool\\": "src/",
-            "Application\\": "lib/Application/"
+            "Application\\": "lib/Application/",
+            "": "src/"
         }
     }
 }

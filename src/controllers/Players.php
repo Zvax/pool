@@ -2,17 +2,18 @@
 
 namespace Pool\Controllers;
 
+use Application\Step;
 use Pool\Model\Mappers\Player;
 use Pool\Model\Params;
-use Pool\Model\Site;
 use Pool\View\Players\ListView;
 use Templating\Renderer;
+use View\Site;
 
 class Players
 {
     private $pdo;
     private $playerMapper;
-    private $siteModel;
+    private $siteView;
     private $playerListView;
     private $renderer;
 
@@ -21,14 +22,14 @@ class Players
         \PDO $pdo,
         Params $params,
         Player $playerMapper,
-        Site $siteModel,
+        Site $site,
         ListView $playerListView,
         Renderer $renderer
     )
     {
         $this->pdo = $pdo;
         $this->playerMapper = $playerMapper;
-        $this->siteModel = $siteModel;
+        $this->siteView = $site;
         $this->playerListView = $playerListView;
         $this->renderer = $renderer;
     }
@@ -36,12 +37,14 @@ class Players
     public function showOne($params)
     {
         $id = $params['id'];
-        $this->siteModel->content = $id;
+        $this->siteView->content = $id;
+        return new Step("View\\Site::show");
     }
 
     public function listPlayers()
     {
-        $this->siteModel->content = $this->renderer->render('players/list',$this->playerListView);
+        $this->siteView->content = $this->renderer->render('players/list',$this->playerListView);
+        return new Step("View\\Site::show");
     }
 
     public function save()

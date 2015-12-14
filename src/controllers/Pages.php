@@ -2,25 +2,27 @@
 
 namespace Pool\Controllers;
 
+use Application\Step;
 use BasicWebsite\Pages\PageReader;
 use Pool\Model\Params;
-use Pool\Model\Site;
+use View\Site;
 
 class Pages
 {
     private $pageReader;
-    private $siteModel;
+    private $siteView;
     private $siteParams;
 
-    public function __construct(PageReader $pageReader,Site $siteModel,Params $siteParams)
+    public function __construct(PageReader $pageReader, Site $site, Params $siteParams)
     {
         $this->pageReader = $pageReader;
-        $this->siteModel = $siteModel;
+        $this->siteView = $site;
         $this->siteParams = $siteParams;
     }
 
     public function show($params)
     {
-        $this->siteModel->content = $this->pageReader->readBySlug($params['slug']);
+        $this->siteView->content = $this->pageReader->readBySlug($params['slug']);
+        return new Step("View\\Site::show");
     }
 }

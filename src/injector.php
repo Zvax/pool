@@ -9,7 +9,7 @@ $injector->share("Http\\Request");
 $injector->share("Http\\Response");
 
 $injector->share("Pool\\Model\\Params");
-$injector->share("Pool\\Model\\Site");
+$injector->share("View\\Site");
 
 $injector->define("PDO",[
     ":dsn" => "sqlite:".__DIR__."/../data/pooldb.db",

@@ -3,7 +3,7 @@
 namespace BasicWebsite;
 
 use Application\Engine;
-use Application\ExecutableList;
+use Application\Step;
 use Auryn\Injector;
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
@@ -50,12 +50,9 @@ switch ($routeInfo[0]) {
 
         $injector->defineParam('params',$vars);
 
-        $list = new ExecutableList([
-            "$className::$method",
-            "BasicWebsite\\Controllers\\Home::show",
-        ]);
+        $firstStep = new Step("$className::$method");
 
-        $app = new Engine($injector,$list);
+        $app = new Engine($injector,$firstStep);
         $app->execute();
         break;
 }
