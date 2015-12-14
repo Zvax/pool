@@ -1,6 +1,6 @@
 <?php
-/** @var \Pool\Views\Players\ListView $this */
-/** @var \Pool\Model\Player $player */
+/** @var \View\Players\ListView $this */
+/** @var \Model\Domain\Player $player */
 ?>
 <form action="players" method="post">
     <label><input type="text" name="firstname" placeholder="first name"></label>

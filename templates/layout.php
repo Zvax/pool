@@ -1,4 +1,4 @@
-<?php /** @var \Pool\Model\Site $this */ ?>
+<?php /** @var \View\Site $this */ ?>
 <!DOCTYPE html>
 <html>
 <head>
