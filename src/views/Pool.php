@@ -14,6 +14,7 @@ class Pool implements MainView
     private $menuReader;
     private $pageReader;
     private $params;
+    private $playerListView;
 
     private $content = 'Default Content';
     private $title = 'Pool Manager';
@@ -23,13 +24,15 @@ class Pool implements MainView
         Renderer $renderer,
         MenuReader $menuReader,
         PageReader $pageReader,
-        Params $params
+        Params $params,
+        ListView $playerListView
     )
     {
         $this->renderer = $renderer;
         $this->menuReader = $menuReader;
         $this->pageReader = $pageReader;
         $this->params = $params;
+        $this->playerListView = $playerListView;
     }
 
     public function showPool() {
@@ -42,7 +45,7 @@ class Pool implements MainView
         switch ($this->params->section)
         {
             case 'players':
-                return $this->renderer->render('players/list',new ListView());
+                return $this->renderer->render('players/list',$this->playerListView);
             case 'pages':
                 return $this->pageReader->readBySlug($this->params->slug);
         }

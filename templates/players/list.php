@@ -11,6 +11,10 @@
     <?php
     foreach ($this->getPlayers() as $player)
     { ?>
-        <li><?= $player->name ?></li>
+        <li>
+            <a href="<?= "players/$player->id" ?>">
+                <?= "$player->firstname $player->lastname" ?>
+            </a>
+        </li>
     <?php } ?>
 </ul>
