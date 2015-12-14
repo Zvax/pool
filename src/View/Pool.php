@@ -1,6 +1,6 @@
 <?php
 
-namespace Pool\Views;
+namespace Pool\View;
 
 use Pool\Model\Site;
 use Templating\Renderer;

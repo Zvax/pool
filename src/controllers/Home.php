@@ -2,9 +2,8 @@
 
 namespace BasicWebsite\Controllers;
 
-use BasicWebsite\Template\Renderer;
 use Http\Response;
-use Pool\Views\Pool;
+use Pool\View\Pool;
 
 class Home
 {

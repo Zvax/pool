@@ -1,6 +1,6 @@
 <?php
 
-namespace Pool\Views\Players;
+namespace Pool\View\Players;
 
 use Pool\Model\Mappers\Player;
 

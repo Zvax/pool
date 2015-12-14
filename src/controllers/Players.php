@@ -5,7 +5,7 @@ namespace Pool\Controllers;
 use Pool\Model\Mappers\Player;
 use Pool\Model\Params;
 use Pool\Model\Site;
-use Pool\Views\Players\ListView;
+use Pool\View\Players\ListView;
 use Templating\Renderer;
 
 class Players
