@@ -1,7 +1,7 @@
 <?php
 
 return [
-    ['GET','/[{slug}]',['BasicWebsite\Controllers\Home','show']],
+    ["GET","/[{slug}]",["Pool\\Controllers\\Front","dispatch"]],
 
-    ['POST','/players',['Pool\Controllers\Players','sauver']],
+    ["POST","/players",["Pool\\Controllers\\Players","sauver"]],
 ];
