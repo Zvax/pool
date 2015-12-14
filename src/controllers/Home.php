@@ -11,9 +11,11 @@ class Home
     private $response;
     private $poolView;
 
-    function __construct(
+    function __construct
+    (
         Response $response,
-        Pool $view)
+        Pool $view
+    )
     {
         $this->response = $response;
         $this->poolView = $view;

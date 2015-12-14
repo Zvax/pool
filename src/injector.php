@@ -9,9 +9,15 @@ $injector->share("Http\\Request");
 $injector->share("Http\\Response");
 
 $injector->share("Pool\\Model\\Params");
+$injector->share("Pool\\Model\\Site");
 
 $injector->define("PDO",[
-    ":dsn" => "sqlite:".__DIR__."/../data/pooldb.db"
+    ":dsn" => "sqlite:".__DIR__."/../data/pooldb.db",
+    ":options" => [
+        PDO::ATTR_EMULATE_PREPARES => false,
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ],
 ]);
 
 $injector->define("Http\\Request",[

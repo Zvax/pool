@@ -4,7 +4,7 @@ namespace Pool\Model;
 
 class Params
 {
-    public $section = "home";
-    public $slug = "";
+    public $section = "pages";
+    public $slug = "home";
 
 }
