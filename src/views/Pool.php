@@ -4,6 +4,7 @@ namespace Pool\Views;
 
 use BasicWebsite\Menu\MenuReader;
 use BasicWebsite\Pages\PageReader;
+use Pool\Model\Params;
 use Pool\Views\Players\ListView;
 use Templating\Renderer;
 
@@ -17,32 +18,35 @@ class Pool implements MainView
     private $content = 'Default Content';
     private $title = 'Pool Manager';
 
-    public function __construct(Renderer $renderer,MenuReader $menuReader,PageReader $pageReader)
+    public function __construct
+    (
+        Renderer $renderer,
+        MenuReader $menuReader,
+        PageReader $pageReader,
+        Params $params
+    )
     {
         $this->renderer = $renderer;
         $this->menuReader = $menuReader;
         $this->pageReader = $pageReader;
+        $this->params = $params;
     }
 
-    public function showPool(array $params = []) {
-        $this->params = $params;
+    public function showPool() {
         return $this->renderer->render('layout',$this);
     }
 
     public function content()
     {
-        if (isset($this->params['slug']))
+
+        switch ($this->params->section)
         {
-            $slug = $this->params['slug'];
-            if ($slug === 'players')
-            {
-                $this->content = $this->renderer->render('players/list',new ListView());
-            }
-            else
-            {
-                $this->content = $this->pageReader->readBySlug($this->params['slug']);
-            }
+            case 'players':
+                return $this->renderer->render('players/list',new ListView());
+            case 'pages':
+                return $this->pageReader->readBySlug($this->params->slug);
         }
+
         return $this->content;
     }
 
