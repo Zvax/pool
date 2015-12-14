@@ -19,9 +19,9 @@ class Home
         $this->poolView = $view;
     }
 
-    public function show($params)
+    public function show()
     {
-        $this->response->setContent($this->poolView->showPool($params));
+        $this->response->setContent($this->poolView->showPool());
     }
 
 }
