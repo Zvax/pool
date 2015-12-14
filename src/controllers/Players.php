@@ -1,6 +1,6 @@
 <?php
 
-namespace Pool\Controllers;
+namespace Controllers;
 
 use Application\Step;
 use Pool\Model\Mappers\Player;
@@ -36,7 +36,7 @@ class Players
 
     public function listPlayers()
     {
-        $this->siteView->content = $this->renderer->render('players/list',$this->playerListView);
+        $this->siteView->content = $this->renderer->render('players/list', $this->playerListView);
         return new Step("View\\Site::show");
     }
 
@@ -49,6 +49,6 @@ class Players
             ':firstname' => $_POST['firstname'],
             ':lastname' => $_POST['lastname'],
         ]);
-        $this->listPlayers();
+        return new Step("Controllers\\Players::listPlayers");
     }
 }

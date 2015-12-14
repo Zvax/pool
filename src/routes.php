@@ -1,9 +1,10 @@
 <?php
 
 return [
-    ["GET","/players[/]",["Pool\\Controllers\\Players","listPlayers"]],
+    ["GET","/players[/]",["\\Controllers\\Players","listPlayers"]],
     ["GET","/players/{id:[0-9]+}",["View\\Players\\Unique","show"]],
-    ["GET","/[{slug}]",["Pool\\Controllers\\Pages","show"]],
+    ["GET","/players/{action}/{id:[0-9]+}",["View\\Players\\Unique","show"]],
+    ["GET","/[{slug}]",["\\Controllers\\Pages","show"]],
 
-    ["POST","/players",["Pool\\Controllers\\Players","save"]],
+    ["POST","/players",["\\Controllers\\Players","save"]],
 ];

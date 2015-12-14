@@ -23,7 +23,15 @@ class Unique
     public function show($params)
     {
         $player = $this->playerMapper->find($params['id']);
-        $this->siteView->content = $player->id;
+
+        if (isset($params['action']) && $params['action'] === 'edit')
+        {
+            $this->siteView->content = $this->renderer->render('players/editForm',$player);
+        }
+        else
+        {
+            $this->siteView->content = $this->renderer->render('players/unique',$player);
+        }
         return new Step("View\\Site::show");
     }
 }
